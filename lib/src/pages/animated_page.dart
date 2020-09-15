@@ -30,6 +30,7 @@ class _AnimatedPageState extends State<AnimatedPage> {
             borderRadius: _borderRadius,
             color: _color,
           ),
+          
         )
       ),
       floatingActionButton: FloatingActionButton(
