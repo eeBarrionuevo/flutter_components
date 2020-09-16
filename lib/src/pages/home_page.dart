@@ -4,6 +4,7 @@ import 'package:flutter_app_components_final/src/pages/animated_page.dart';
 import 'package:flutter_app_components_final/src/pages/avatar_page.dart';
 import 'package:flutter_app_components_final/src/pages/card_page.dart';
 import 'package:flutter_app_components_final/src/pages/input_page.dart';
+import 'package:flutter_app_components_final/src/pages/slider_page.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -74,6 +75,19 @@ class HomePage extends StatelessWidget {
             onTap: (){
               Navigator.push(context, MaterialPageRoute(
                   builder: (context) => InputPage()
+              ));
+            },
+          ),
+          Divider(
+            thickness: 0.8,
+          ),
+          ListTile(
+            title: Text("Slider"),
+            leading: Icon(Icons.list, color: Colors.lightBlueAccent),
+            trailing: Icon(Icons.chevron_right, color: Colors.lightBlueAccent),
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(
+                  builder: (context) => SliderPage()
               ));
             },
           ),

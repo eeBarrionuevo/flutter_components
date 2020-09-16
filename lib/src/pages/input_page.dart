@@ -12,6 +12,9 @@ class _InputPageState extends State<InputPage> {
   String fecha = "";
   TextEditingController inputFieldDateController = new TextEditingController();
 
+  List<String> powers = ["Volar", "Super fuerza","Agilidad","Saltar"];
+  String select = "Volar";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +31,9 @@ class _InputPageState extends State<InputPage> {
           Divider(),
           _buildPassword(),
           Divider(),
-          _buildDate()
+          _buildDate(),
+          Divider(),
+          _buildDropDown()
         ],
       )
     );
@@ -123,5 +128,41 @@ class _InputPageState extends State<InputPage> {
        });
      }
   }
+
+
+  Widget _buildDropDown(){
+    return Row(
+      children: <Widget>[
+        Icon(Icons.select_all),
+        SizedBox(width: 30.0,),
+        Expanded(
+          child: DropdownButton(
+            items: getOptionsDropdown(),
+            value: select,
+            onChanged: (value){
+              setState(() {
+                select = value;
+              });
+            },
+          ),
+        )
+      ],
+    );
+  }
+
+  List<DropdownMenuItem<String>> getOptionsDropdown(){
+    List<DropdownMenuItem<String>> list = new List();
+    powers.forEach((item) {
+      list.add(DropdownMenuItem(
+        child: Text(item),
+        value: item ,
+      ));
+    });
+    return list;
+  }
+
+
+
+
 
 }
